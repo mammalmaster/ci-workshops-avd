@@ -20,7 +20,7 @@ local_users:
 - name: arista
   privilege: 15
   role: network-admin
-  sha512_password: $6$arista$BUKJJmr7yDbUD1ngDtAwWwPMH7apYTAlTuRrk0SpamZRyerKsqD8G7hDPdvEVMcmrSBV/benm17r1C9pCyp3F.
+  sha512_password: $6$arista$RArU/OEQzi81GpjRc8tQz6nDYbOoQGCq02vnj4AeNZrW6wSGSN6dyDw1/DzCDi5HvsTWHXFmASMPSy7iJED.T/
   ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClyqYeSZtsHZT3pctkSipYcEFaZURvPt6tNsYso6PXenhqr0NFl+FW9MFt7NJK5EaZw2vbtZXuU75A0YrTDcTsTCkr6JOpRJnQMBvaJ9zXayHF75T6WI/ifGJGVnzQxAkp7NBxNjATNlU/CYRQb9YP+zK3IrxtSTim+OgvygqKxncr775eKFkZfHGsFFHMbqbCNlYsJkvxcNVIO8s1qkTU+Zn5tmmXPCqUsgUiwQfA3G506eKKtyPZM4oI/jK1YeDJOg5gs0db5IPSM7KnKxZxHEopf0AFLCdP0Wk0Aqq1y79wTvUNBuGEfc3rvX6Li3uBm8X6sf+8OMOXMBOBGOM9
     arista@westley-testdrive-1-933b65cd-eos.c.atds-280712.internal
 vrfs:
@@ -120,10 +120,10 @@ ethernet_interfaces:
     mode: active
 - name: Ethernet4
   peer: s1-host2
-  peer_interface: eth2
+  peer_interface: eth5
   peer_type: server
   port_profile: PP-VLAN20
-  description: s1-host2_eth2
+  description: s1-host2_eth5
   shutdown: false
   type: port-channel-member
   channel_group:

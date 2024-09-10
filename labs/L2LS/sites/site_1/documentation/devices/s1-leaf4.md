@@ -272,7 +272,7 @@ vlan 4094
 | Ethernet1 | MLAG_PEER_s1-leaf3_Ethernet1 | *trunk | *- | *- | *['MLAG'] | 1 |
 | Ethernet2 | S1-SPINE1_Ethernet5 | *trunk | *20 | *- | *- | 2 |
 | Ethernet3 | S1-SPINE2_Ethernet5 | *trunk | *20 | *- | *- | 2 |
-| Ethernet4 | s1-host2_eth2 | *access | *20 | *- | *- | 4 |
+| Ethernet4 | s1-host2_eth5 | *access | *20 | *- | *- | 4 |
 | Ethernet6 | MLAG_PEER_s1-leaf3_Ethernet6 | *trunk | *- | *- | *['MLAG'] | 1 |
 
 *Inherited from Port-Channel Interface
@@ -297,7 +297,7 @@ interface Ethernet3
    channel-group 2 mode active
 !
 interface Ethernet4
-   description s1-host2_eth2
+   description s1-host2_eth5
    no shutdown
    channel-group 4 mode active
 !

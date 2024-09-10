@@ -15,11 +15,16 @@ jobs:
       - name: Hi
         run: echo "Hello World!"
 
+      - name: which dir
+        run: pwd && ls
+
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
       - name: Install Python requirements
         run: pip3 install "pyavd[ansible]==4.10.0"
