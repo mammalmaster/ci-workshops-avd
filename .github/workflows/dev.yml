@@ -48,9 +48,25 @@ jobs:
             workflows:
               - 'sites/site_2/**'
 
+      - name: Check paths for lab L2LS sites/site_1
+        uses: dorny/paths-filter@v3
+        id: filter-lab-site1
+        with:
+          filters: |
+            workflows:
+              - 'labs/L2LS/sites/site_1/**'
+
+      - name: Check paths for lab L2LS sites/site_2
+        uses: dorny/paths-filter@v3
+        id: filter-lab-site2
+        with:
+          filters: |
+            workflows:
+              - 'labs/L2LS/sites/site_2/**'
+
       - name: Install collections
         run: ansible-galaxy collection install -r requirements.yml
-        if: steps.filter-site1.outputs.workflows == 'true' || steps.filter-site2.outputs.workflows == 'true'
+        if: steps.filter-site1.outputs.workflows == 'true' || steps.filter-site2.outputs.workflows == 'true' || steps.filter-lab-site1.outputs.workflows == 'true' || steps.filter-lab-site2.outputs.workflows == 'true'
 
       - name: Test configuration for site1
         run: make build-site-1
@@ -59,3 +75,11 @@ jobs:
       - name: Test configuration for site2
         run: make build-site-2
         if: steps.filter-site2.outputs.workflows == 'true'
+      # LAB
+      - name: Test configuration for Lab site1
+        run: cd labs/L2LS/; make build-site-1
+        if: steps.filter-lab-site1.outputs.workflows == 'true'
+
+      - name: Test configuration for site2
+        run: cd labs/L2LS/; make build-site-2
+        if: steps.filter-lab-site2.outputs.workflows == 'true'
